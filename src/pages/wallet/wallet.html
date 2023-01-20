@@ -1,0 +1,50 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+    <ion-title>My Wallet</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card text-center padding flat-card *ngIf="current_balance" style="box-shadow: 1px 2px 6px 0 rgba(0,0,0,.16) !important;
+  border: 1px solid #e8e8e8;background: #efefef;">
+    <div>
+      <h1 style="font-size: 15px;">Wallet Balance</h1>
+      <p style="color: #b24872;font-size: 30px;">{{current_balance}}</p>
+    </div>
+
+    <button ion-button full primary large class="cswallet" (click)="wallet_process();">
+      <ion-icon name="add-circle"></ion-icon> &nbsp;Add In Wallet
+    </button>
+  </ion-card>
+  
+  <h2 *ngIf="mwallets" padding-left style="font-size: 1.4em;"><b
+      style="color: #0d5e79;text-decoration:underline">Wallet History</b></h2>
+  <ion-card *ngFor="let wallet of mwallets" text-wrap style="box-shadow: none; border-bottom: 2px solid #efefef;">
+    <ion-card-content no-padding>
+      <ion-item>
+        <p>Transaction ID <b style="color:#0d5e79">#{{wallet.wallet_id}}</b></p>
+        <p class="ellipsis">
+          <span item-right style="color:#949494 !important;float: left;">
+            <ion-icon name="clock"></ion-icon>&nbsp; {{ wallet.date_added }}
+          </span>
+        </p>
+
+        <p item-right class="ellipsis" *ngIf="wallet.cr_dr == '1'"
+          style="font-size: 1.4rem;color: green;font-weight: bold;" [innerHTML]="wallet.txn_amount">
+
+        </p>
+        <p item-right class="ellipsis" *ngIf="wallet.cr_dr == '-1'"
+          style="font-size: 1.4rem;color: red;font-weight: bold;" [innerHTML]="wallet.txn_amount">
+
+        </p>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

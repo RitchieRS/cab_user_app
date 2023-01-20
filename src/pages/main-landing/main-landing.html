@@ -1,0 +1,35 @@
+<ion-content style="background: url(assets/imgs/login_bg.jpg)">
+  <div class="logo">
+    <img src="assets/imgs/icon.png" alt="Ionic logo">
+  </div>
+
+  <ion-list margin style="margin-top: 30px;">
+    <button ion-button style="text-transform: none;" color="txt" block medium outline (click)="onRegister()">
+      New User Singup ?
+    </button>
+  </ion-list>
+
+  <ion-list margin style="margin-top: 30px;">
+    <button ion-button color="light" block medium round (click)="onsign()">
+      &nbsp;sign In
+    </button>
+  </ion-list>
+
+  <ion-list margin style="margin-top: 30px;" (click)="forgetPassword()">
+    <p text-center style="color: #fff;">Forget Password ?</p>
+  </ion-list>
+
+  <!-- <ion-footer>
+    <ion-grid style="padding: 0;">
+      <ion-row responsive-sm>
+        <ion-col>
+          <a style="float:right;color:#fff !important;" (click)="about()">About&nbsp;&nbsp; &#124;</a>
+        </ion-col>
+        <ion-col>
+          <a class="forgotpass" style="color:#fff !important;float:left;" (click)="visitsite()">Visit Website</a>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-footer> -->
+
+</ion-content>

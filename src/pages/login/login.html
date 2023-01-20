@@ -1,0 +1,50 @@
+
+<ion-content fullscreen>
+	<div class="logo-background-full" padding>
+		<ion-row padding-top>
+			<ion-col padding>
+				<img src="assets/imgs/logo.png" style="width: 80%">
+			</ion-col>
+		</ion-row>
+		<h2 padding-top padding-left>Get ready for ride</h2>
+	</div>
+	<div class="logo-background-cover"></div>
+
+	<div padding>
+		<form #login_form="ngForm" novalidate class="vertical-middle" style="text-align: center;">
+			<ion-list no-lines>
+				<ion-item>
+					<ion-icon name="person" item-start></ion-icon>
+					<ion-input [(ngModel)]="login.mail" placeholder="Username / Mobile" name="mail" type="email"
+						#mail="ngModel" spellcheck="false" autocapitalize="off" required>
+					</ion-input>
+					<span item-end class="error" [hidden]="mail.valid || submitted == false">*</span>
+				</ion-item>
+				<ion-item>
+					<ion-icon name="lock" item-start></ion-icon>
+					<ion-input [(ngModel)]="login.pwd" name="pwd" placeholder="Password" type="password" #pwd="ngModel"
+						required>
+					</ion-input>
+					<span item-end class="error" [hidden]="pwd.valid || submitted == false">*</span>
+				</ion-item>
+			</ion-list>
+
+			<ion-row responsive-sm>
+				<ion-col>
+					<button ion-button (click)="doLogin(login_form)" type="submit" round block>Login</button>
+				</ion-col>
+			</ion-row>
+
+			<ion-row responsive-sm margin-top padding-left padding-right>
+				<ion-col (click)="onRegister()" text-left>
+					New User
+				</ion-col>
+				<ion-col (click)="forgetPassword()" text-right>
+					Forget Password
+				</ion-col>
+			</ion-row>
+
+		</form>
+	</div>
+
+</ion-content>

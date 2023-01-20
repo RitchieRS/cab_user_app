@@ -1,0 +1,58 @@
+<ion-header>
+
+	<ion-navbar color="primary">
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>My Trip</ion-title>
+	</ion-navbar>
+	<ion-toolbar no-padding>
+		<ion-segment [(ngModel)]="Trip_select" (ionChange)="segmentChanged()">
+			<ion-segment-button value="booked">
+				BOOKED
+			</ion-segment-button>
+			<ion-segment-button value="Cancelled">
+				CANCELED
+			</ion-segment-button>
+			<ion-segment-button value="complete">
+				COMPLETED
+			</ion-segment-button>
+		</ion-segment>
+	</ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+	<ion-list *ngIf="active_trip">
+		<ion-item (click)='show_details(item)' class="item item-icon-left item-icon-right color-gery "
+			*ngFor='let item of active_trip'>
+			<ion-row>
+				<ion-col no-padding col-2>
+					<img src='assets/imgs/taxi_icon.png' style='width: 40px' />
+				</ion-col>
+				<ion-col col-10 style="padding: 10px 5px;">
+					{{ item.taxi_type }}<span class="amount">₹{{ item.amount }}</span>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col col-3>
+					<b>{{ item.pickup_date_formatted }}</b><br />
+					<span class="trip-time">{{ item.pickup_time }}</span>
+				</ion-col>
+				<ion-col col-9>
+					<div class="address">
+						<p class="pickup_area ellipsis">{{ item.pickup_area }}</p>
+						<p class="drop_area ellipsis">{{ item.drop_area }}</p>
+					</div>
+				</ion-col>
+			</ion-row>
+			<!--<ion-icon name="cog" item-start style="color: #70767b;"></ion-icon>
+			<p style="color:aab2b9" style="color:#bfa98e"> {{item.pickup_area }} - {{item.drop_area}}</p>
+			<span style="color:aab2b9" style="color:#83928d">{{item.pickup_date}}</span>
+			<ion-icon name="ios-arrow-forward" item-end style="color: #70767b;"></ion-icon>-->
+		</ion-item>
+	</ion-list>
+	<ion-item *ngIf="!active_trip">
+		No Trip Found.
+	</ion-item>
+</ion-content>

@@ -1,0 +1,47 @@
+<ion-content fullscreen>
+	<ion-header no-border>
+		<ion-navbar transparent>
+		</ion-navbar>
+	</ion-header>
+	<div class="logo-background-full" padding>
+		<ion-row padding-top>
+			<ion-col padding>
+				<img src="assets/imgs/logo.png" style="width: 80%">
+			</ion-col>
+		</ion-row>
+		<h2 padding-top padding-left>Sign Up.</h2>
+		<p padding>For new user enter your Mobile Number and get OTP. An SMS may be sent to verify your
+			number.<br /></p>
+	</div>
+	<div class="logo-background-cover"></div>
+
+
+	<div padding>
+		<form [formGroup]="ionform">
+
+			<ion-list no-lines>
+				<ion-item>
+					<ion-label>Mobile No
+						<span item-end style="color: red;"
+							*ngIf="!ionform.controls.mobileno.valid && (ionform.controls.mobileno.dirty || submitted)">*</span>
+					</ion-label>
+				</ion-item>
+				<ion-item>
+					<ion-label>
+						<ion-icon name="call" item-start></ion-icon>
+					</ion-label>
+					<ion-input formControlName="mobileno" type="number" placeholder="Enter Mobile No"
+						[class.invalid]="!ionform.controls.mobileno.valid && (ionform.controls.mobileno.dirty || submitted)"
+						required></ion-input>
+				</ion-item>
+			</ion-list>
+
+			<ion-row responsive-sm>
+				<ion-col>
+					<button ion-button (click)="onSignup()" type="submit" round block style="height: 40px;">Accept &
+						Verify</button>
+				</ion-col>
+			</ion-row>
+		</form>
+	</div>
+</ion-content>

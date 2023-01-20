@@ -1,0 +1,171 @@
+<!-- <ion-header no-sha>
+  <ion-navbar color="head">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Booking : Home
+    </ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content fullscreen>
+  <ion-header no-border>
+    <ion-navbar transparent>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-navbar>
+  </ion-header>
+  <div [class]="disable_input"></div>
+  <div id='set-top' class='target-box'>
+    <ion-searchbar id="input" [(ngModel)]="dropcomplete.input" (ionInput)="dropSearchResults()"
+      placeholder="Enter Pickup location" disabled style="border-bottom: 1px solid #8a8a8a;"></ion-searchbar>
+    <button ion-button iocn-only (click)="reLocate();"
+      style="position: absolute;margin-top: -45px;float: right; right: 0px;">
+      <ion-icon name="pin"></ion-icon>
+    </button>
+    <ion-list *ngIf="pickupautocomplteItems && pickupautocomplteItems.length > 0">
+      <ion-item *ngFor="let pitem of pickupautocomplteItems" tappable (click)="selectdropPlace(pitem)">
+        {{ pitem.description }}
+      </ion-item>
+    </ion-list>
+
+    <ion-searchbar id="input2" [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()"
+      placeholder="Enter Drop location" [disabled]="disable_input"></ion-searchbar>
+    <ion-list *ngIf="autocompleteItems && autocompleteItems.length > 0">
+      <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectPlace(item)">
+        {{ item.description }}
+      </ion-item>
+    </ion-list>
+
+    <div class='wrap' style='margin-top: 10px;' style="display: none">
+      <label class=" item-input">
+        <ion-icon name="ios-search" item-end color="txt"></ion-icon>
+        <input [disabled]='pop_status' id="autocompleteto" [(ngModel)]="end_box.location" name="autocompleteto"
+          type="text" #autocompleteto="ngModel" placeholder="Enter Drop location" />
+      </label>
+    </div>
+  </div>
+
+  <div #pleaseConnect id="pleaseConnect">
+    <p>Please connect to the Internet...</p>
+  </div>
+  <div #map_canvas id="map_canvas">
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col no-padding *ngIf="btngo">
+        <button ion-button (click)="ride()" color="primary" item-end block full large no-padding no-margin>
+          Go
+        </button>
+      </ion-col>
+
+      <ion-col col no-padding *ngIf="!btngo && !activateFilterBlock">
+        <button color="primary" (click)="call_page()" ion-button item-end block full large no-padding no-margin>
+          Cancel
+        </button>
+      </ion-col>
+
+
+      <ion-col col no-padding *ngIf="!btngo && btnbook">
+        <button color="primary" ion-button (click)="book_cab()" item-end block full large no-padding no-margin>
+          Book
+        </button>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-footer>
+
+<div id="booking-type-popup" *ngIf="show_booking_types">
+  <div class="booking-types" padding>
+    <h3>Select Trip Type</h3>
+
+    <ion-scroll scrollX="true" direction="x" style="height: 150px" no-padding class="h-container">
+      <ion-row no-padding text-center>
+        <ion-col col col-4 no-padding (click)='clicked_type(i)' [class]="active_type == i ? 'active_type' : ''"
+          *ngFor="let trip_type of trip_types;let i = index;">
+          <ion-card style="box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);">
+            <img src='{{trip_type.img}}' />
+          </ion-card>
+          {{trip_type.type}}
+        </ion-col>
+        <!-- <ion-col col-4 (click)='clicked_type(i)' [class]="active_type == i ? 'active_type' : ''" *ngFor="let trip_type of trip_types;let i = index;">
+			  {{trip_type.type}}
+			  <img src='{{trip_type.img}}' style='width: 50px' />
+      </ion-col> -->
+      </ion-row>
+
+    </ion-scroll>
+
+  </div>
+</div>
+
+
+<div id="main-popup" *ngIf="cabs && activateFilterBlock">
+  <div class="booking-types" padding>
+    <h3>Select Vehicle</h3>
+    <div id='my-pop' class='animation-styles'>
+      <div id='tab-hide' class='visible' *ngIf="selected_cab">
+        <div class='item-box' text-center>
+          <h2 style="color: #ffbc01;margin-bottom: 0px;">{{selected_cab.cartype}}</h2>
+          <span class='color-gery d-block' style="font-size: 1.1em;">Milez 20 km / hrs</span>
+        </div>
+
+        <div id='fare-breakup-box' text-center margin-top>
+          <h3 no-margin>Fare Breakup</h3>
+          <!-- {{end_box}} -->
+          <ion-row>
+            <ion-col col-6 no-padding no-margin>
+              <ion-card class="item-box">
+                <b>₹{{selected_cab.intailrate}}</b><br>
+                First {{ selected_cab.intialkm }}km
+              </ion-card>
+            </ion-col>
+            <ion-col col-6 no-padding no-margin>
+              <ion-card class="item-box">
+                <b>₹{{selected_cab.standardrate}}/km</b><br>
+                After {{ selected_cab.intialkm }}km
+              </ion-card>
+            </ion-col>
+          </ion-row>
+          <p>Airport rate may differ, <br>peak time charges may apply.</p>
+        </div>
+      </div>
+
+      <ion-scroll scrollX="true" direction="x" style="height: 100px" no-padding class="h-container">
+
+        <ion-row no-padding text-center nowrap class="item-car-box">
+          <ion-col col-4 (click)='clicked_item(i)' [class]="active_cab == i ? 'active_cab' : ''"
+            *ngFor="let cab of cabs;let i = index;">
+            <img src='assets/imgs/newcar.png' style='width: 50px' *ngIf="!cab.image" />
+            <img [src]='cab.image' style='width: 50px' *ngIf="cab.image" />
+            <div class="ellipsis">{{cab.cartype}}</div>
+          </ion-col>
+        </ion-row>
+
+      </ion-scroll>
+
+
+      <button ion-button block id="apply_filters" (click)="confirm()">confirm</button>
+      <ion-row>
+        <ion-col>
+          <button ion-button clear icon-only color="white">
+            <ion-icon name="md-refresh"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button clear icon-only color="white" (click)="cancel_tab()">
+            <ion-icon name="md-close"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list lines no-margin  class="box-container">
+    <ion-list-header>My Information</ion-list-header>
+
+    <ion-item>
+      <ion-icon name="contact" item-start></ion-icon> {{username}}
+    </ion-item>
+    <ion-item>
+      <ion-icon name="call" item-start></ion-icon> {{userphone}}
+    </ion-item>
+    <ion-item>
+      <ion-icon name="mail" item-start></ion-icon> {{usermail}}
+    </ion-item>
+  </ion-list>
+
+    <div></div>
+  <ion-list lines no-margin margin-top class="box-container">
+    <ion-list-header> Change Password</ion-list-header>
+
+    <form #login_form="ngForm" novalidate class="vertical-middle">
+      <ion-list>
+        <ion-item>
+          <ion-label stacked color="txt">Password</ion-label>
+          <ion-input [(ngModel)]="signUp.pwd" name="pwd" placeholder="Enter password" type="password" #pwd="ngModel"
+            required>
+          </ion-input>
+          <span item-end class="error" [hidden]="pwd.valid || submitted == false">*</span>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked color="txt">Confirm Password</ion-label>
+          <ion-input [(ngModel)]="signUp.c_pwd" name="c_pwd" placeholder="Enter confirm password" type="password"
+            #c_pwd="ngModel" required>
+          </ion-input>
+          <span item-end class="error" [hidden]="c_pwd.valid || submitted == false">*</span>
+        </ion-item>
+      </ion-list>
+
+      <ion-row responsive-sm>
+        <ion-col>
+          <button ion-button (click)="do_change(login_form)" type="submit" round block>Reset Password</button>
+        </ion-col>
+      </ion-row>
+
+
+    </form>
+
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,71 @@
+<ion-split-pane when="xl">
+
+    <!-- logged out menu -->
+    <ion-menu [content]="content">
+
+        <ion-header no-border>
+            <ion-toolbar>
+                <ion-list class="profile-section" margin-top>
+                    <ion-item menuClose (click)="onProfile()">
+                        <ion-thumbnail item-left>
+                            <img src="assets/imgs/user.png">
+                        </ion-thumbnail>
+                        <h2>{{username}} <span>View profile</span></h2>
+                        <!-- <ion-icon name="call" item-start></ion-icon>{{userphone}} -->
+                    </ion-item>
+                </ion-list>
+            </ion-toolbar>
+        </ion-header>
+
+        <ion-content class="menu_content">
+
+            <ion-list lines no-margin>
+
+                <button menuClose ion-item (click)="onHome()">
+                    <ion-icon name="car" item-start></ion-icon>
+                    Home
+                </button>
+                <!--
+                <button menuClose ion-item (click)="onWallet()">
+                    <ion-icon name="car" item-start></ion-icon>
+                    My Wallet
+                </button>-->
+
+                <button menuClose ion-item (click)="onTrips()">
+                    <ion-icon name="list" item-start></ion-icon>History
+                </button>
+
+                <button menuClose ion-item (click)="onTrips()">
+                    <ion-icon name="help-buoy" item-start></ion-icon>Support
+                </button>
+
+                <button menuClose ion-item (click)="onTrips()">
+                    <ion-icon name="information-circle" item-start></ion-icon>About
+                </button>
+
+                <!--<button menuClose ion-item (click)="onCard()">
+                    <ion-icon name="card" item-start></ion-icon>Rate Card
+                    <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+                </button>-->
+
+                <button menuClose ion-item (click)="logout()">
+                    <ion-icon name="log-out" item-start></ion-icon> Logout
+                </button>
+            </ion-list>
+
+        </ion-content>
+
+    </ion-menu>
+
+
+    <div #pleaseConnect id="pleaseConnect">
+        <p></p>
+    </div>
+
+    <div #map id="map">
+    </div>
+
+
+
+    <ion-nav [root]="rootPage" persistent=“true” #content swipeBackEnabled="false" main name="app"></ion-nav>
+</ion-split-pane>

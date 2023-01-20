@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Signup</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <form #sign_up_form="ngForm" novalidate class="vertical-middle" style="text-align: center;" padding>
+
+    <ion-list no-lines>
+      <ion-item>
+        <ion-icon class="input_icon" name="person" item-start></ion-icon>
+        <ion-input placeholder="Enter your name" [(ngModel)]="signUp.name" type="text" #name="ngModel" name="name"
+          spellcheck="false" autocapitalize="off" required>
+        </ion-input>
+        <span item-end class="error" [hidden]="name.valid || submitted == false">*</span>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="input_icon" name="person" item-start></ion-icon>
+        <ion-input placeholder="Enter your username" [(ngModel)]="signUp.user_name" name="user_name" type="email"
+          #user_name="ngModel" spellcheck="false" autocapitalize="off" required>
+        </ion-input>
+        <span item-end class="error" [hidden]="user_name.valid || submitted == false">*</span>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="input_icon" name="call" item-start></ion-icon>
+        <ion-input [(ngModel)]="signUp.mobile" [disabled]="true" name="mobile" type="tel" #mobile="ngModel"
+          spellcheck="false" autocapitalize="off">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon class="input_icon" name="mail" item-start></ion-icon>
+          <ion-input placeholder="Enter your email" [(ngModel)]="signUp.mail" name="mail" type="email" #mail="ngModel"
+          spellcheck="false" autocapitalize="off">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon class="input_icon" name="eye" item-start></ion-icon>
+        <ion-input placeholder="Enter your password" [(ngModel)]="signUp.pwd" name="pwd" type="password" #pwd="ngModel"
+          required>
+        </ion-input>
+        <span item-end class="error" [hidden]="pwd.valid || submitted == false">*</span>
+      </ion-item>
+    </ion-list>
+
+    <ion-row responsive-sm>
+      <ion-col>
+        <button ion-button (click)="doSignup(sign_up_form)" type="submit" round block>Sign up</button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+</ion-content>

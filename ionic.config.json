@@ -1,0 +1,7 @@
+{
+  "name": "Cab",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
