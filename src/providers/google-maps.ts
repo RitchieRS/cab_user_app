@@ -13,7 +13,7 @@ export class MapGoogle {
   mapLoaded: any;
   mapLoadedObserver: any;
   currentMarker: any;
-  apiKey: string =  "AIzaSyB1DSf-PRIb0k0bX9CAqDxLc0EHtAUCuPk";
+  apiKey: string =  "AIzaSyC4G8GC_bGcyAw1t24KR5EUSiChdIC29XI";
 
   constructor(public connectivityService: Connectivity, public geolocation: Geolocation) {
 

@@ -23,8 +23,8 @@ export class Common {
     }
 
 
-  private URL_MAIN_ROOT: string = "http://googlehub.com/cab/web_service/";
-  public URL_MAIN_URL: string = "http://googlehub.com/cab/"; 
+  private URL_MAIN_ROOT: string = "http://soljacapp.corporativaweb.com.mx/index.php/web_service/";
+  public URL_MAIN_URL: string = "http://soljacapp.corporativaweb.com.mx"; 
   
   public URL_RESET_PASSWORD: string = this.URL_MAIN_ROOT + "userResetPassword";
 
