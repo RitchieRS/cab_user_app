@@ -340,7 +340,7 @@ export class HomePage implements OnInit {
       "mobileno": this.userphone,
       "user_name": this.username,
     }
-    //console.log(post_data);
+    console.log(post_data);
     console.log("web_service/book_cab")
 
     this.http.post(this.common.URL_BOOK_CAB, post_data)
@@ -385,6 +385,7 @@ export class HomePage implements OnInit {
       "ENVIRONMENT": "staging",
       "CHECKSUMHASH": "",
     }
+    console.log(txnRequest);
     console.log("paytm/getChecksum");
     this.http.post(this.common.GET_CHECKSUM, txnRequest).subscribe(res => {
       let data = res.json();
@@ -600,6 +601,7 @@ export class HomePage implements OnInit {
       "transfertype": this.selected_trip_type.value,
       "book_date": this.book_date,
     }
+    console.log( post_data);
 
     console.log("web_service/fetch_cab_details");
 
@@ -609,10 +611,11 @@ export class HomePage implements OnInit {
           let data = res.json();
           this.loader.dismiss();
           this.btngo = false;
+          console.log(data.cabs)
           if (data.cabs.length == 0) {
             alert('no cabs')
           } else {
-
+            console.log(data);
             this.cabs = data.cabs;
             console.log(this.cabs);
             this.active_cab = 0;

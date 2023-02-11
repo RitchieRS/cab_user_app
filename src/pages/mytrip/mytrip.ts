@@ -45,6 +45,7 @@ export class MytripPage {
 				"user_name": user_data.User_name,
 				"token": user_data.token,
 			}
+			console.log(post_data)
 			console.log("web_service/load_trips");
 			
 			this.http.post(this.common.URL_LOAD_TRIPS, post_data)
@@ -65,7 +66,8 @@ export class MytripPage {
 								this.active_trip = data.success;
 							}
 							else if (this.Trip_select == "booked") {
-								this.active_trip = data.booking;
+								//this.active_trip = data.booked;
+								this.active_trip = data.all;
 							}
 
 							//	console.log(this.booked_trips);

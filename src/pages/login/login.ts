@@ -20,9 +20,6 @@ export class LoginPage {
   submitted = false;
   loader: any;
 
-
-  
-
   constructor(public navCtrl: NavController, public http: Http,
     public common:Common,
     public menu: MenuController,public userdata: UserData, public toastCtrl: ToastController,
@@ -41,18 +38,6 @@ export class LoginPage {
     this.loader = this.loadCtrl.create({
       content: 'Please wait...'
     });
-    /**por momento dejar */
-    var user_data = {
-      "Id": "123456422",
-      "Name": "Paquito",
-      "Email": "Paquito@gmail.com",
-      "User_name": "PaquitoMc",
-      "wallet_amount": "10000USD",
-      "Mobile": "373267392",
-      "token": "DHDHWBCYSHDHE",
-    };
-    this.userdata.setUserData(user_data);
-    this.navCtrl.setRoot(HomePage);
 
 
     if (form.valid) {

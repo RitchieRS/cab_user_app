@@ -61,20 +61,20 @@
     <ion-row>
       <ion-col col no-padding *ngIf="btngo">
         <button ion-button (click)="ride()" color="primary" item-end block full large no-padding no-margin>
-          Go
+          Listo
         </button>
       </ion-col>
 
       <ion-col col no-padding *ngIf="!btngo && !activateFilterBlock">
         <button color="primary" (click)="call_page()" ion-button item-end block full large no-padding no-margin>
-          Cancel
+          Cancelar
         </button>
       </ion-col>
 
 
       <ion-col col no-padding *ngIf="!btngo && btnbook">
         <button color="primary" ion-button (click)="book_cab()" item-end block full large no-padding no-margin>
-          Book
+          Solicitar
         </button>
       </ion-col>
 
@@ -84,16 +84,16 @@
 
 <div id="booking-type-popup" *ngIf="show_booking_types">
   <div class="booking-types" padding>
-    <h3>Select Trip Type</h3>
+    <h3>Solicitar ahora!</h3>
 
     <ion-scroll scrollX="true" direction="x" style="height: 150px" no-padding class="h-container">
       <ion-row no-padding text-center>
         <ion-col col col-4 no-padding (click)='clicked_type(i)' [class]="active_type == i ? 'active_type' : ''"
-          *ngFor="let trip_type of trip_types;let i = index;">
+          *ngFor="let trip_type of trip_types.slice(2,3);let i = index;">
           <ion-card style="box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);">
             <img src='{{trip_type.img}}' />
           </ion-card>
-          {{trip_type.type}}
+          Iniciar
         </ion-col>
         <!-- <ion-col col-4 (click)='clicked_type(i)' [class]="active_type == i ? 'active_type' : ''" *ngFor="let trip_type of trip_types;let i = index;">
 			  {{trip_type.type}}
@@ -109,17 +109,17 @@
 
 <div id="main-popup" *ngIf="cabs && activateFilterBlock">
   <div class="booking-types" padding>
-    <h3>Select Vehicle</h3>
+    <h3>¿Qué tipo de ambulancia necesitas?</h3>
     <div id='my-pop' class='animation-styles'>
       <div id='tab-hide' class='visible' *ngIf="selected_cab">
         <div class='item-box' text-center>
           <h2 style="color: #ffbc01;margin-bottom: 0px;">{{selected_cab.cartype}}</h2>
-          <span class='color-gery d-block' style="font-size: 1.1em;">Milez 20 km / hrs</span>
+          <!--<span class='color-gery d-block' style="font-size: 1.1em;">Milez 20 km / hrs</span>-->
         </div>
 
-        <div id='fare-breakup-box' text-center margin-top>
+      <!--  <div id='fare-breakup-box' text-center margin-top>
           <h3 no-margin>Fare Breakup</h3>
-          <!-- {{end_box}} -->
+           {{end_box}}
           <ion-row>
             <ion-col col-6 no-padding no-margin>
               <ion-card class="item-box">
@@ -135,7 +135,7 @@
             </ion-col>
           </ion-row>
           <p>Airport rate may differ, <br>peak time charges may apply.</p>
-        </div>
+        </div>-->
       </div>
 
       <ion-scroll scrollX="true" direction="x" style="height: 100px" no-padding class="h-container">
