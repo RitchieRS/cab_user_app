@@ -1,12 +1,12 @@
 
 <ion-content fullscreen>
 	<div class="logo-background-full" padding>
-		<ion-row padding-top>
-			<ion-col padding>
-				<img src="assets/imgs/logo.png" style="width: 80%">
+		<ion-row padding-top class="ion-justify-content-center">
+			<ion-col padding size="3" style="text-align: center;">
+				<img src="assets/imgs/logo2.svg" style="width: 68%">
 			</ion-col>
 		</ion-row>
-		<h2 padding-top padding-left>Get ready for ride</h2>
+		<!-- <h2 padding-top padding-left>Get ready for ride</h2> -->
 	</div>
 	<div class="logo-background-cover"></div>
 
@@ -36,11 +36,11 @@
 			</ion-row>
 
 			<ion-row responsive-sm margin-top padding-left padding-right>
-				<ion-col (click)="onRegister()" text-left>
-					New User
+				<ion-col (click)="onRegister()" text-left style="color:#2A317D;">
+					Crear usuario
 				</ion-col>
-				<ion-col (click)="forgetPassword()" text-right>
-					Forget Password
+				<ion-col (click)="forgetPassword()" text-right style="color:#2A317D;">
+					Recuperar Password
 				</ion-col>
 			</ion-row>
 

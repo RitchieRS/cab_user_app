@@ -18,13 +18,14 @@
     </ion-navbar>
   </ion-header>
   <div [class]="disable_input"></div>
+
   <div id='set-top' class='target-box'>
     <ion-searchbar id="input" [(ngModel)]="dropcomplete.input" (ionInput)="dropSearchResults()"
-      placeholder="Enter Pickup location" disabled style="border-bottom: 1px solid #8a8a8a;"></ion-searchbar>
-    <button ion-button iocn-only (click)="reLocate();"
+      placeholder="Punto de partida" disabled ></ion-searchbar>
+    <!-- <button ion-button iocn-only (click)="reLocate();"
       style="position: absolute;margin-top: -45px;float: right; right: 0px;">
       <ion-icon name="pin"></ion-icon>
-    </button>
+    </button> -->
     <ion-list *ngIf="pickupautocomplteItems && pickupautocomplteItems.length > 0">
       <ion-item *ngFor="let pitem of pickupautocomplteItems" tappable (click)="selectdropPlace(pitem)">
         {{ pitem.description }}
@@ -32,7 +33,7 @@
     </ion-list>
 
     <ion-searchbar id="input2" [(ngModel)]="autocomplete.input" (ionInput)="updateSearchResults()"
-      placeholder="Enter Drop location" [disabled]="disable_input"></ion-searchbar>
+      placeholder="Lugar de destino" [disabled]="disable_input"></ion-searchbar>
     <ion-list *ngIf="autocompleteItems && autocompleteItems.length > 0">
       <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectPlace(item)">
         {{ item.description }}
@@ -84,27 +85,31 @@
 
 <div id="booking-type-popup" *ngIf="show_booking_types">
   <div class="booking-types" padding>
-    <h3>Solicitar viaje ahora!</h3>
+    <h3 class="color-d-myblue">Solicitar viaje ahora!</h3>
 
     <ion-scroll scrollX="true" direction="x" style="height: 150px" no-padding class="h-container">
       <ion-row no-padding text-center>
-        <ion-col col col-4 no-padding (click)='clicked_type(i)' [class]="active_type == i ? 'active_type' : ''"
+        <!-- <ion-col col col-4 no-padding (click)='clicked_type(i)' [class]="active_type == i ? 'active_type' : ''"
           *ngFor="let trip_type of trip_types.slice(2,3);let i = index;">
           <ion-card style="box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);">
             <img src='{{trip_type.img}}' />
           </ion-card>
           Iniciar
+        </ion-col> -->
+        <ion-col col col-12>
+          <button ion-button expand="full" color="primary" (click)='clicked_type(i)' *ngFor="let trip_type of trip_types.slice(2,3);let i = index;">
+            <img src="assets/imgs/ambulancia-white.png" style="width: 32px; margin-right: 10px;">
+            Iniciar viaje
+          </button>
+
         </ion-col>
-        <!-- <ion-col col-4 (click)='clicked_type(i)' [class]="active_type == i ? 'active_type' : ''" *ngFor="let trip_type of trip_types;let i = index;">
-			  {{trip_type.type}}
-			  <img src='{{trip_type.img}}' style='width: 50px' />
-      </ion-col> -->
       </ion-row>
 
     </ion-scroll>
 
   </div>
 </div>
+
 
 
 <div id="main-popup" *ngIf="cabs && activateFilterBlock">
