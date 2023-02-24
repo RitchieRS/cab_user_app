@@ -1,5 +1,5 @@
 page-mytrip {
-	
+
 	ion-segment-button {
 		color: #000000 !important;
 	}
@@ -10,10 +10,10 @@ page-mytrip {
 
 	ion-segment-button.segment-activated
     {
-        background: #ffbc01 !important;
+        background: #CD2822 !important;
         color: #ffffff !important;
 	}
-	
+
 	.trip-time {
 		font-weight: 200;
 		font-size: 14px;
@@ -44,7 +44,7 @@ page-mytrip {
 		/* vertical-align: 10px; */
 		position: absolute;
 		left: 1px;
-		bottom: 0; 
+		bottom: 0;
 	}
 	.amount {
 		float: right;

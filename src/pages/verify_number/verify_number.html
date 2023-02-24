@@ -4,33 +4,33 @@
 		</ion-navbar>
 	</ion-header>
 	<div class="logo-background-full" padding>
-		<ion-row padding-top>
-			<ion-col padding>
-				<img src="assets/imgs/logo.png" style="width: 80%">
+		<ion-row padding-top class="ion-justify-content-center">
+			<ion-col padding size="3" style="text-align: center;">
+				<img src="assets/imgs/logo2.svg" style="width: 80%">
 			</ion-col>
 		</ion-row>
-		<h2 padding-top padding-left>Sign Up.</h2>
-		<p padding>For new user enter your Mobile Number and get OTP. An SMS may be sent to verify your
-			number.<br /></p>
+		<h2 padding-top padding-left class="color-d-myblue">Inscribirse.</h2>
+    <p padding class="color-d-myblue">
+      Para un nuevo usuario, ingrese su número de teléfono móvil y obtenga OTP. Es posible que se envíe un SMS para verificar su
+número
+    </p>
 	</div>
-	<div class="logo-background-cover"></div>
-
+	<!-- <div class="logo-background-cover"></div> -->
 
 	<div padding>
 		<form [formGroup]="ionform">
-
 			<ion-list no-lines>
 				<ion-item>
-					<ion-label>Mobile No
+					<ion-label>
 						<span item-end style="color: red;"
 							*ngIf="!ionform.controls.mobileno.valid && (ionform.controls.mobileno.dirty || submitted)">*</span>
 					</ion-label>
 				</ion-item>
 				<ion-item>
 					<ion-label>
-						<ion-icon name="call" item-start></ion-icon>
+						<ion-icon name="call" item-start color="primary"></ion-icon>
 					</ion-label>
-					<ion-input formControlName="mobileno" type="number" placeholder="Enter Mobile No"
+					<ion-input formControlName="mobileno" type="number" placeholder="Ingrese su número móvil"
 						[class.invalid]="!ionform.controls.mobileno.valid && (ionform.controls.mobileno.dirty || submitted)"
 						required></ion-input>
 				</ion-item>
@@ -38,8 +38,9 @@
 
 			<ion-row responsive-sm>
 				<ion-col>
-					<button ion-button (click)="onSignup()" type="submit" round block style="height: 40px;">Accept &
-						Verify</button>
+          <button ion-button (click)="onSignup()" type="submit" round block style="height: 40px;">
+            Aceptar y verificar
+          </button>
 				</ion-col>
 			</ion-row>
 		</form>

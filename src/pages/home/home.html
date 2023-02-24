@@ -114,11 +114,11 @@
 
 <div id="main-popup" *ngIf="cabs && activateFilterBlock">
   <div class="booking-types" padding>
-    <h3>¿Qué tipo de ambulancia necesitas?</h3>
+    <h3 class="color-d-myblue">¿Qué tipo de ambulancia necesitas?</h3>
     <div id='my-pop' class='animation-styles'>
       <div id='tab-hide' class='visible' *ngIf="selected_cab">
         <div class='item-box' text-center>
-          <h2 style="color: #ffbc01;margin-bottom: 0px;">{{selected_cab.cartype}}</h2>
+          <h2 class="color-my-red" style="margin-bottom: 0px;">{{selected_cab.cartype}}</h2>
           <!--<span class='color-gery d-block' style="font-size: 1.1em;">Milez 20 km / hrs</span>-->
         </div>
 
@@ -157,7 +157,9 @@
       </ion-scroll>
 
 
-      <button ion-button block id="apply_filters" (click)="confirm()">confirm</button>
+      <button ion-button block id="apply_filters" (click)="confirm()">
+        <ion-icon name="checkmark-circle"></ion-icon> Confirmar
+      </button>
       <ion-row>
         <ion-col>
           <button ion-button clear icon-only color="white">
