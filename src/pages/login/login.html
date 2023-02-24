@@ -14,14 +14,14 @@
 		<form #login_form="ngForm" novalidate class="vertical-middle" style="text-align: center;">
 			<ion-list no-lines>
 				<ion-item>
-					<ion-icon name="person" item-start></ion-icon>
+					<ion-icon class="color-d-myblue" name="person" item-start></ion-icon>
 					<ion-input [(ngModel)]="login.mail" placeholder="Usuario / Móvil" name="mail" type="email"
 						#mail="ngModel" spellcheck="false" autocapitalize="off" required>
 					</ion-input>
 					<span item-end class="error" [hidden]="mail.valid || submitted == false">*</span>
 				</ion-item>
 				<ion-item>
-					<ion-icon name="lock" item-start></ion-icon>
+					<ion-icon class="color-d-myblue" name="lock" item-start></ion-icon>
 					<ion-input [(ngModel)]="login.pwd" name="pwd" placeholder="Contraseña" type="password" #pwd="ngModel"
 						required>
 					</ion-input>
