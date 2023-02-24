@@ -3,7 +3,7 @@
 
   <ion-navbar color="primary">
 		<button ion-button menuToggle>
-			<ion-icon name="menu"></ion-icon>
+			<ion-icon name="menu" class="color-d-myblue"></ion-icon>
 		</button>
     <ion-title>My Wallet</ion-title>
   </ion-navbar>
@@ -23,7 +23,7 @@
       <ion-icon name="add-circle"></ion-icon> &nbsp;Add In Wallet
     </button>
   </ion-card>
-  
+
   <h2 *ngIf="mwallets" padding-left style="font-size: 1.4em;"><b
       style="color: #0d5e79;text-decoration:underline">Wallet History</b></h2>
   <ion-card *ngFor="let wallet of mwallets" text-wrap style="box-shadow: none; border-bottom: 2px solid #efefef;">
