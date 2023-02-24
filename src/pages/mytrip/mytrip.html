@@ -4,18 +4,18 @@
 		<button ion-button menuToggle>
 			<ion-icon name="menu" class="color-d-myblue"></ion-icon>
 		</button>
-		<ion-title>My Trip</ion-title>
+		<ion-title>Mis viajes</ion-title>
 	</ion-navbar>
 	<ion-toolbar no-padding>
 		<ion-segment [(ngModel)]="Trip_select" (ionChange)="segmentChanged()">
 			<ion-segment-button value="booked">
-				BOOKED
+				RESERVADOS
 			</ion-segment-button>
 			<ion-segment-button value="Cancelled">
-				CANCELED
+				CANCELADOS
 			</ion-segment-button>
 			<ion-segment-button value="complete">
-				COMPLETED
+				COMPLETADOS
 			</ion-segment-button>
 		</ion-segment>
 	</ion-toolbar>
