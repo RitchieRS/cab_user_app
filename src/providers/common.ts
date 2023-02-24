@@ -5,7 +5,6 @@ import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
 import { Events } from 'ionic-angular';
 import { Platform } from 'ionic-angular';
-import { Http } from '@angular/http'; 
 import { UserData } from '../providers/user-data/user-data';
 
 @Injectable()
@@ -13,7 +12,6 @@ export class Common {
 
   static customer_id: any;
     constructor(public events: Events,
-        public http: Http,
         public userdata: UserData,
         public storage: Storage,
         public platform: Platform) {

@@ -20,6 +20,12 @@
     "@angular/http": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
+    "@capacitor/android": "^4.7.0",
+    "@capacitor/app": "4.1.1",
+    "@capacitor/core": "4.7.0",
+    "@capacitor/haptics": "4.1.0",
+    "@capacitor/keyboard": "4.1.1",
+    "@capacitor/status-bar": "4.1.1",
     "@ionic-native/call-number": "^4.20.0",
     "@ionic-native/core": "~4.20.0",
     "@ionic-native/geolocation": "^4.20.0",
@@ -43,6 +49,7 @@
     "zone.js": "0.8.29"
   },
   "devDependencies": {
+    "@capacitor/cli": "4.7.0",
     "@ionic/app-scripts": "3.2.2",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
