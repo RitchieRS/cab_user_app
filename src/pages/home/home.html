@@ -64,7 +64,7 @@
     <ion-row>
       <ion-col col no-padding *ngIf="btngo">
         <button ion-button (click)="ride()" color="primary" item-end block full large no-padding no-margin>
-          Listo
+          Iniciar viaje
         </button>
       </ion-col>
 
@@ -85,9 +85,10 @@
   </ion-grid>
 </ion-footer>
 
-<div id="booking-type-popup" *ngIf="show_booking_types">
-  <div class="booking-types" padding>
-    <h3 class="color-d-myblue">Solicitar viaje ahora!</h3>
+<div id="booking-type-popup" *ngIf="show_booking_types"><br><br><br>
+  <div class="booking-types-bg-img" style='background-image: url(assets/imgs/paramedica-ambulancia.jpg);' padding>
+    <br><br><br>
+    <h3 style="color: white;">Bien venido a nuestro sistema de servicio de ambulancia.</h3>
 
     <ion-scroll scrollX="true" direction="x" style="height: 150px" no-padding class="h-container">
       <ion-row no-padding text-center>
@@ -101,21 +102,20 @@
         <ion-col col col-12>
           <button ion-button expand="full" color="primary" (click)='clicked_type(i)' *ngFor="let trip_type of trip_types.slice(2,3);let i = index;">
             <img src="assets/imgs/ambulancia-white.png" style="width: 32px; margin-right: 10px;">
-            Iniciar viaje
+            Solicitar viaje ahora
           </button>
 
         </ion-col>
       </ion-row>
 
     </ion-scroll>
-
   </div>
 </div>
 
 
 
 <div id="main-popup" *ngIf="cabs && activateFilterBlock">
-  <div class="booking-types" padding>
+  <div class="booking-types" padding><br>
     <h3 class="color-d-myblue">¿Qué tipo de ambulancia necesitas?</h3>
     <div id='my-pop' class='animation-styles'>
       <div id='tab-hide' class='visible' *ngIf="selected_cab">
