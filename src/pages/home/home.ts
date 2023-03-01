@@ -104,7 +104,7 @@ export class HomePage implements OnInit {
   }
   reLocate() {
     this.dropcomplete.input = '';
-    setTimeout(() => { this.loadMap() }, 500);
+    setTimeout(() => { this.loadMap() }, 100);
   }
   ngOnInit() {
     this.platform.ready().then(() => {
@@ -114,11 +114,13 @@ export class HomePage implements OnInit {
         // resp.coords.longitude
         this.userData.setLat(resp.coords.latitude);
         this.userData.setlng(resp.coords.longitude);
+        this.makeMarker({ lat: resp.coords.latitude, lng: resp.coords.longitude }, this.current_icon.ic, "your location", this.maps.map);
       }).catch((error) => {
         console.log('Error getting location', error);
       });
     });
     this.get_usersession();
+    //this.reLocate();
   }
 
   startOver() {
