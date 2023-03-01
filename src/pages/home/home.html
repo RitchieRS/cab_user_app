@@ -24,10 +24,10 @@
   <div id='set-top' class='target-box'>
     <ion-searchbar id="input" [(ngModel)]="dropcomplete.input" (ionInput)="dropSearchResults()"
       placeholder="Punto de partida" disabled ></ion-searchbar>
-    <!-- <button ion-button iocn-only (click)="reLocate();"
+     <button ion-button iocn-only (click)="reLocate();"
       style="position: absolute;margin-top: -45px;float: right; right: 0px;">
       <ion-icon name="pin"></ion-icon>
-    </button> -->
+    </button> 
     <ion-list *ngIf="pickupautocomplteItems && pickupautocomplteItems.length > 0">
       <ion-item *ngFor="let pitem of pickupautocomplteItems" tappable (click)="selectdropPlace(pitem)">
         {{ pitem.description }}
@@ -88,7 +88,7 @@
 <div id="booking-type-popup" *ngIf="show_booking_types"><br><br><br>
   <div class="booking-types-bg-img" style='background-image: url(assets/imgs/paramedica-ambulancia.jpg);' padding>
     <br><br><br>
-    <h3 style="color: white;">Bien venido a nuestro sistema de servicio de ambulancia.</h3>
+    <h3 style="color: white;">Bienvenido a nuestro sistema de servicio de ambulancia.</h3>
 
     <ion-scroll scrollX="true" direction="x" style="height: 150px" no-padding class="h-container">
       <ion-row no-padding text-center>
