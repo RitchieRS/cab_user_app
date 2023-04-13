@@ -98,9 +98,8 @@ export class ViewTrackPage implements OnInit {
     var post_data = {
       "driver_id": this.driver.id
     }
-    console.log("web_service/get_driver_lat_lng");
-
-
+    console.log("tracker");
+    console.log(this.common.URL_GET_DRIVER_LAT_LONG);
     this.observable = this.http.post(this.common.URL_GET_DRIVER_LAT_LONG, post_data)
       .pipe(map(
         res => {
